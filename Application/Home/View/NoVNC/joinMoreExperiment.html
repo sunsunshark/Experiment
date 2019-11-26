@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style type="text/css">
+<style>
+	.point{
+    	float: left;
+    	list-style: none;
+	}
+	.point li{
+	margin-bottom: 10px;
+	}
+	.box{
+	    float: center;
+	}
+
+	.box div{
+	    border: 1px solid green;
+	    display: none;
+	}
+	.box .con0{
+	       display: block;
+	}
+ html, body {
+            width:100%;
+            height:100%;
+            margin:0px;
+            padding:0px;
+    }
+
+</style>
+<body>
+
+    <div style="float: left;" >
+        <ul class="point">
+                
+                <volist name="datas" id="data"  key="k" >
+                    <li><a href="#">Host{$k-1}</a></li>
+                </volist>
+        </ul>
+    </div>
+
+    <div class="box"  style="height: 100%;width: 68%; float: right;" >
+
+
+      <volist name="datas" id="data"  key="k" >
+          <div class="con{$k-1}" id="con{$k-1}"  style="height: 100%;width: 100%;" >  </div>
+      </volist>
+
+    </div>
+
+</body>
+</html>
+<script src="__PUBLIC__/Home/js/jquery-2.0.0.min.js"></script>
+
+  <script type="text/javascript">
+      $(document).ready(function(){
+      $(".point li a").click(function(){
+      var order = $(".point li a").index(this);//点击之后可以返回当前a标签index的值
+      $(".con" + order).show().siblings("div").hide();
+      });
+      })
+  </script>
+
+
+
+ <volist name="datas" id="data"  key="k" >
+
+     <script type="module" crossorigin="anonymous" >
+      import RFB from '__PUBLIC__/Home/plugin/noVNC/core/rfb.js';
+       var rfb = new RFB(document.getElementById("con{$k-1}"),"{$data}" ,{ credentials: { password: '123456' } }  );
+      rfb.connect(); 
+    </script>
+
+
+ </volist>
