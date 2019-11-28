@@ -219,6 +219,26 @@
 		width: 100%;
 		height: 600px;
 	}
+	.back_top{
+		width: 55px;
+		height: 120px;
+		cursor:pointer;
+		left: 1195px;
+		top: 400px;
+		position: fixed;
+		display: none;
+		z-index: 99;
+		outline: none;
+		/*border:1px solid black;*/
+		background:#dad9d9;
+		font-family: '微软雅黑';
+		border-radius: 5px;
+	}
+	.back_top:hover{
+		background:#f2e3e4;
+		/*font-color:white;*/
+
+	}
 	</style>	
 </head>
 <body>
@@ -247,13 +267,58 @@
 			<div class="joinExperiment" >
 				<a href="{:U('Docker/joinExperiment')}/id/{$data['eid']}" target="block" style="color: #303030;padding-left: 8px;">
 
-				 {$data['is_Join']===true ? '进入主机' : '加入' } <img src="__ROOT__/Source/Experiment/{$data['signal_b']} " alt="" style="float: left;margin-left: : 5px;">     </a>
+				 {$data['is_Join']===true ? '进入主机' : '加入' } <img src="__ROOT__/Source/Experiment/{$data['signal_b']} " alt="" style="float: left;margin-left:5px;">     </a>
 			</div>
 		</div>
     </div>
 </volist>
+<div class="back_top" id="btn" onclick="topFunction()">
+	<a href="javascript:;"><img src="__ROOT__/Source/Course/backtop.png" style="border-radius: 5px 5px 0px 0px;">
+		<ul style="color:black;margin-left: 7px;font-size: 18px;">
+			<li>返回</li>
+			<li>顶部</li>
+		</ul></a>
+</div>
 
 
 </body>
 </html>
+<script>
+// 当网页向下滑动 20px 出现"返回顶部" 按钮
+// window.onload = function(){
+window.onscroll = function() {scrollFunction()};
+ 
+function scrollFunction() {console.log(121);
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("btn").style.display = "block";
+    } else {
+        document.getElementById("btn").style.display = "none";
+    }
+}
+// 点击按钮，返回顶部
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+function goupFunction(){
+	var btp = document.getElementById('btp');
+	var ctp = document.getElementById('ctp');
+	var ztp = document.getElementById('ztp');
+	var timer = null;
+	btp.onmouseover = ctp.onmouseover = function(){
+		if(timer) clearTimeout(timer)
+			ctp.style.display = 'block';
+			ztp.className = 'cou_zong2';
+	}
+	btp.onmouseout = ctp.onmouseout = function(){
+		timer = setTimeout(function(){
+			ctp.style.display = 'none';
+			ztp.className = 'cou_zong';
+
+		},400);
+	}
+}
+
+
+</script>
 
