@@ -245,7 +245,7 @@
 <div class="d_a">
 		<!--输入框-->
 		<div class="d_input">
-			<span class="d_imgsou"><img src="/Experiment2/Source/Experiment/sou.png"></span>
+			<span class="d_imgsou"><img src="/Experiment6/Source/Experiment/sou.png"></span>
 			<input type="text" name="keyword" value="主机名字关键词" class="dd_input" onfocus="if (value =='主机名字关键词'){value =''}" onblur="if (value ==''){value='主机名字关键词'}">
 			
 			<button type="submit" class="dd_button">查询</button>
@@ -253,25 +253,25 @@
 <?php if(is_array($datas)): $i = 0; $__LIST__ = $datas;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data): $mod = ($i % 2 );++$i;?><div class="myDiv" style="width: 30%;height: 80%; " >
 
 		<div style="height:50%;float: left;width:100%;" >
-			<img src="/Experiment2/Source/Experiment/<?php echo ($data['outcome_model']); ?> " alt="" style="width:100%;height: 100%; ">
+			<img src="/Experiment6/Source/Experiment/<?php echo ($data['outcome_model']); ?> " alt="" style="width:100%;height: 100%; ">
 		</div>
 		<div style="width: 75%;float:left;height: 100%; ">
 			<p style=" font-size:25px;margin-top: 15px;"><?php echo ($data['ename']); ?> </p> 
-			<!-- <img class="d_imgb" src="/Experiment2/Public/Experiment/time.png"> -->
+			<!-- <img class="d_imgb" src="/Experiment6/Public/Experiment/time.png"> -->
 	        <span class="teacher">任课教师：<?php echo ($data['teacher']); ?></span>
 	        <span class="course">课程状态：<?php echo ($data['status']); ?> </span>  
-	        <span class="timea" ><img src="/Experiment2/Source/Experiment/<?php echo ($data['signal_a']); ?> " alt="" style="float:left;margin-left: 70px;padding-right: 10px;margin-top: -3px; ">开始时间：<?php echo ($data['start_time']); ?></span>  
-	        <span class="timeb"><img src="/Experiment2/Source/Experiment/<?php echo ($data['signal_a']); ?> " alt="" style="float:left;margin-left: 70px;padding-right: 10px;margin-top: -3px; ">结束时间：<?php echo ($data['end_time']); ?> </span>
+	        <span class="timea" ><img src="/Experiment6/Source/Experiment/<?php echo ($data['signal_a']); ?> " alt="" style="float:left;margin-left: 70px;padding-right: 10px;margin-top: -3px; ">开始时间：<?php echo ($data['start_time']); ?></span>  
+	        <span class="timeb"><img src="/Experiment6/Source/Experiment/<?php echo ($data['signal_a']); ?> " alt="" style="float:left;margin-left: 70px;padding-right: 10px;margin-top: -3px; ">结束时间：<?php echo ($data['end_time']); ?> </span>
 
 			<div class="joinExperiment" >
 				<a href="<?php echo U('Docker/joinExperiment');?>/id/<?php echo ($data['eid']); ?>" target="block" style="color: #303030;padding-left: 8px;">
 
-				 <?php echo ($data['is_Join']===true ? '进入主机' : '加入'); ?> <img src="/Experiment2/Source/Experiment/<?php echo ($data['signal_b']); ?> " alt="" style="float: left;margin-left:5px;">     </a>
+				 <?php echo ($data['is_Join']===true ? '进入主机' : '加入'); ?> <img src="/Experiment6/Source/Experiment/<?php echo ($data['signal_b']); ?> " alt="" style="float: left;margin-left:5px;">     </a>
 			</div>
 		</div>
     </div><?php endforeach; endif; else: echo "" ;endif; ?>
 <div class="back_top" id="btn" onclick="topFunction()">
-	<a href="javascript:;"><img src="/Experiment2/Source/Course/backtop.png" style="border-radius: 5px 5px 0px 0px;">
+	<a href="javascript:;"><img src="/Experiment6/Source/Course/backtop.png" style="border-radius: 5px 5px 0px 0px;">
 		<ul style="color:black;margin-left: 7px;font-size: 18px;">
 			<li>返回</li>
 			<li>顶部</li>

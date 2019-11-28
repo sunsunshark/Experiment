@@ -102,22 +102,22 @@ div{
 </style>
 <body>
   <div style="height: 8%; " >
-     <div class="d_sy"><img src="/Experiment2/Source/Direct/home.png" ></div>
+     <div class="d_sy"><img src="/Experiment6/Source/Direct/home.png" ></div>
   <ul style="padding-left: 0px;">
     <li><a href="<?php echo U('Index/showExperiment');?>" target="iframe" >首页     </a></li>
     <!-- <li><a class="active"  href="<?php echo U('showCourse');?>" target="iframe">课程 </a></li> -->
     <!-- <li><a href="<?php echo U('Index/showExperiment');?>" target="iframe" >主机</a></li> -->
-    <div class="d_kc"><img src="/Experiment2/Source/Direct/kc.png" ></div>
+    <div class="d_kc"><img src="/Experiment6/Source/Direct/kc.png" ></div>
     <li><a href="<?php echo U('Index/showCourse');?>" target="iframe" >课程</a></li>
-    <div class="d_zj"><img src="/Experiment2/Source/Direct/zj.png" ></div>
+    <div class="d_zj"><img src="/Experiment6/Source/Direct/zj.png" ></div>
     <li><a href="<?php echo U('Index/showMyCourse');?>" target="iframe">我的主机</a></li>
-    <div class="d_bc"><img src="/Experiment2/Source/Direct/bc.png" ></div>
+    <div class="d_bc"><img src="/Experiment6/Source/Direct/bc.png" ></div>
     <li><a href="<?php echo U('OnlineCompile/showCompile');?> " target="iframe">在线编程</a></li>
-    <div class="d_person"><img src="/Experiment2/Source/Direct/person.png" ></div>
+    <div class="d_person"><img src="/Experiment6/Source/Direct/person.png" ></div>
    <li><a href="<?php echo U('Index/showStudentInfoById');?> " target="iframe">个人中心</a></li>
-   <div class="d_user"><img src="/Experiment2/Source/Direct/user.png" ></div>
+   <div class="d_user"><img src="/Experiment6/Source/Direct/user.png" ></div>
     <li><a href="">用户:<?php echo ($user_name); ?> </a>  </li>
-    <div class="d_zx"><img src="/Experiment2/Source/Direct/zx.png" ></div>
+    <div class="d_zx"><img src="/Experiment6/Source/Direct/zx.png" ></div>
     <li>   <a href="<?php echo U('Login/logout');?> ">注销</a>       </li>
   </ul>
   </div>
