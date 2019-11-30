@@ -6,14 +6,14 @@
 </head>
 
 
-<link rel=stylesheet href="/Experiment2/Public/Home/plugin/codemirror/doc/docs.css">
-<link rel="stylesheet" href="/Experiment2/Public/Home/plugin/codemirror/lib/codemirror.css">
-<link rel="stylesheet" href="/Experiment2/Public/Home/plugin/codemirror/addon/hint/show-hint.css">
+<link rel=stylesheet href="/Experiment6/Public/Home/plugin/codemirror/doc/docs.css">
+<link rel="stylesheet" href="/Experiment6/Public/Home/plugin/codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="/Experiment6/Public/Home/plugin/codemirror/addon/hint/show-hint.css">
 
-<script src="/Experiment2/Public/Home/plugin/codemirror/lib/codemirror.js"></script>
-<script src="/Experiment2/Public/Home/plugin/codemirror/addon/hint/show-hint.js"></script>
-<script src="/Experiment2/Public/Home/plugin/codemirror/addon/hint/anyword-hint.js"></script>
-<script src="/Experiment2/Public/Home/plugin/codemirror/mode/javascript/javascript.js"></script>
+<script src="/Experiment6/Public/Home/plugin/codemirror/lib/codemirror.js"></script>
+<script src="/Experiment6/Public/Home/plugin/codemirror/addon/hint/show-hint.js"></script>
+<script src="/Experiment6/Public/Home/plugin/codemirror/addon/hint/anyword-hint.js"></script>
+<script src="/Experiment6/Public/Home/plugin/codemirror/mode/javascript/javascript.js"></script>
 
 
 <style type="text/css">

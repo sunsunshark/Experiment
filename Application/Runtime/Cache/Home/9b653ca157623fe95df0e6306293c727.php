@@ -197,7 +197,7 @@
 <!--课程显示-->
 <!-- <div class="show_course"></div> -->
 	<?php if(is_array($datas)): $i = 0; $__LIST__ = $datas;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data): $mod = ($i % 2 );++$i;?><div class="show_small">
-		<img src="/Experiment2/Source/Course/<?php echo ($data['img']); ?> " alt="" style="width:100%;height: 65%; z-index: -1;">
+		<img src="/Experiment6/Source/Course/<?php echo ($data['img']); ?> " alt="" style="width:100%;height: 65%; z-index: -1;">
 		<div class="cou_zong" id="ztp">
 		<div class="cou_biaoti" id="btp" onmouseover="goupFunction()">
 			<span><?php echo ($data["cname"]); ?>课程实践</span>
@@ -209,7 +209,7 @@
 <!--课程显示end-->
 <!--回到顶部-->
 <div class="back_top" id="btn" onclick="topFunction()">
-	<a href="javascript:;"><img src="/Experiment2/Source/Course/backtop.png" style="border-radius: 5px 5px 0px 0px;">
+	<a href="javascript:;"><img src="/Experiment6/Source/Course/backtop.png" style="border-radius: 5px 5px 0px 0px;">
 		<ul style="color:black;margin-left: 7px;font-size: 18px;">
 			<li>返回</li>
 			<li>顶部</li>

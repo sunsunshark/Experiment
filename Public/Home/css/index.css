@@ -1,0 +1,101 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+
+}
+
+li {
+    float: left;
+    margin-left: 30px; /*设置li之间的距离*/
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+html, body {
+            width:100%;
+            height:100%;
+            margin:0px;
+            padding:0px;
+}
+
+
+li a:hover {
+    background-color: #111;
+}
+div{
+  border: 0;
+}
+.d_sy{
+  width: 30px;
+  height: 20px;
+  /*border:1px solid white;*/
+  float: left;
+  position: absolute;
+  margin-top: -3px;
+  margin-left: 3px;
+}
+.d_kc{
+  width: 30px;
+  height: 20px;
+  float: left;
+  position: absolute;
+  margin-left: 106px;
+  margin-top: 10px;
+}
+.d_zj{
+  width: 30px;
+  height: 30px;
+  float: left;
+  position: absolute;
+  margin-left: 190px;
+  margin-top: 5px;
+}
+.d_bc{
+  width: 30px;
+  height: 30px;
+  float: left;
+  position: absolute;
+  margin-left: 318px;
+  margin-top: 5px;
+}
+.d_person{
+  width: 30px;
+  height: 30px;
+  float: left;
+  position: absolute;
+  margin-left: 443px;
+  margin-top: 5px;
+}
+.d_user{
+  width: 30px;
+  height: 30px;
+  float: left;
+  position: absolute;
+  margin-left: 570px;
+  margin-top: 5px;
+}
+.d_zx{
+  width: 30px;
+  height: 30px;
+  float: left;
+  position: absolute;
+  margin-left: 702px;
+  margin-top: 5px;
+}
+.d_wdkc{
+  width: 30px;
+  height: 30px;
+  float: left;
+  position: absolute;
+  margin-left: 800px;
+  margin-top: 10px;
+
+}
