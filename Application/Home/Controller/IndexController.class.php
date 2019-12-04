@@ -14,9 +14,15 @@ class IndexController extends MyController{
 	}
 	
 
-	public function test034(){
-			
+	public function test01(){
+		$this->display('Index/test01');
+
 	}
+	public function test02(){
+		$this->display('Index/test02');
+		
+	}
+
 
 	public function login(){
 		$this->display('Login/login');
