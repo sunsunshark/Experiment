@@ -245,14 +245,14 @@
   </div>
 
 </main>
-
 <footer class="text-muted">
   <div class="container">
     <p class="float-right">
       <a href="#">Back to top</a>
     </p>
     <p>制作者 &copy; DATA团队</p>
-    <p>联系我们：<a href="#">博客地址</a>  </br> 新的建议：<a href="#">点击跳转</a>.</p>
+    <p>联系我们：<a href="#"></a> https://github.com/jianhanke/
+ </br> 新的建议：<a href="#">点击跳转</a>.</p>
   </div>
 </footer>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

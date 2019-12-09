@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>实验平台管理</title>
-    <link rel="stylesheet" type="text/css" href="/Experiment/Public/Admin/css/common.css"/>
-    <link rel="stylesheet" type="text/css" href="/Experiment/Public/Admin/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="/Experiment7/Public/Admin/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="/Experiment7/Public/Admin/css/main.css"/>
 </head>
 <body>
 <div class="topbar-wrap white">
@@ -105,7 +105,7 @@
     <div class="main-wrap"  >
 	
    	
-       <iframe src="/Experiment/index.php/Admin/Index/home" name="iframe" scrolling="" width="100%" height="650px;" frameborder="0"></iframe>
+       <iframe src="/Experiment7/index.php/Admin/Index/home" name="iframe" scrolling="" width="100%" height="650px;" frameborder="0"></iframe>
  	
       
     </div>
