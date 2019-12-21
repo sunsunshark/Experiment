@@ -8,6 +8,18 @@ class IndexController extends MyController{
 	public function index(){
 		$user_id=session('user_id');
 		$user_name=session('user_name');
+		$model=D('Experiment');
+		$info=$model->show_Experiment();
+		$user_id=session('user_id');
+		$all_Id=$model->get_All_Id();
+		$arr=array();
+		for($i=0;$i<count($info);$i++){
+			// array_push($arr,$info[$i]['eid']);
+			$experiment_id=$info[$i]['eid'];
+			$is_Join=$this->isJoinExperimentById($user_id,$experiment_id);
+			$info[$i]['is_Join']=$is_Join;
+		}
+		$this->assign('datas',$info);
 		$this->assign('user_id',$user_id);
 		$this->assign('user_name',$user_name);
 		$this->display();
