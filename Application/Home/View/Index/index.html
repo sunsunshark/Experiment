@@ -20,6 +20,7 @@
  <meta name="msapplication-config" content="https://v4ing.bootcss.com/docs/4.3/assets/img/favicons/browserconfig.xml">
 <meta name="theme-color" content="#563d7c">
     <style>
+
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -54,6 +55,8 @@
     <link href="__PUBLIC__/bootstrap-4.3.1-dist/css/album.css" rel="stylesheet">
   </head>
   <body>
+
+
     <header>
 
   <div class="navbar navbar-dark bg-dark shadow-sm" >
@@ -86,25 +89,25 @@
   <div class="navbar">
    <ul class="nav nav-tabs" role="tablist">
     <li class="nav-item">
-      <a class="nav-link active" data-toggle="tab" href="#home">首页</a>
+      <a class="nav-link active" href="{:U('Experiment/showExperiment')}" target="iframe" >首页</a>
+    </li>
+  <!--   <li class="nav-item">
+      <a class="nav-link" href="{:U('Course/showCourse')}" target="iframe" >课程</a>
+    </li> -->
+    <li class="nav-item">
+      <a class="nav-link"  href="{:U('Course/showMyCourse')}" target="iframe">我的课程</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="{:U('Index/showCourse')}">课程</a>
+      <a class="nav-link"  href="{:U('Course/showMyCourse')}" target="iframe">我的主机</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="{:U('Index/showMyCourse')}">我的课程</a>
+      <a class="nav-link"  href="{:U('OnlineCompile/showCompile')}" target="iframe">在线编程</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="{:U('Index/showMyCourse')}">我的主机</a>
+      <a class="nav-link"  href="{:U('Student/showStudentInfoById')}" target="iframe">个人中心</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="{:U('OnlineCompile/showCompile')} ">在线编程</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="{:U('Index/showStudentInfoById')}">个人中心</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="{:U('Login/logout')}">注销</a>
+      <a class="nav-link"  href="{:U('Login/logout')}" target="iframe">注销</a>
     </li>
   </ul>
   </div>
@@ -117,41 +120,12 @@
 
   <!--two-->
 </header>
-
-<main role="main">
-  <div class="album py-5 bg-light">
-    <div class="container">
-      <div class="row">
-        <volist name='datas' id='data'>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-              <img src="__ROOT__/Source/Experiment/{$data['outcome_model']}" >
-
-            <div class="card-body">
-              <p style="font-size: 20px;">{$data['ename']}</p>
-              <p class="card-text">{$data['goal']}</p>
-              <div class="d-flex justify-content-between align-items-center">
-              <small class="text-muted">n人在用</small>
-                <div class="btn-group">
-                  <if condition="$data['is_Join'] eq 1 " >
-                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="window.location.href='{:U('Docker/joinExperiment')}/id/{$data['eid']}'">进入主机</button>
-                      <else />
-                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="window.location.href='{:U('Docker/joinExperiment')}/id/{$data['eid']}'">加入到我的课程</button>
-                  </if>
-                  
-                  
-                </div>
-                
-              </div>
-            </div>
-          </div>
-        </div>
-      </volist>
-        <!--分界线-->
-      </div>
-    </div>
-  </div>
-
+<!-- width="100%" height="100%" -->
+<main style="height: 100%; ">
+ <div style="height: 100%;">
+   <iframe src="{:U('Experiment/showExperiment')}" width="100%" height="100%"  name="iframe"  scrolling="" id="main">
+   </iframe>
+ </div>
 </main>
 
 <footer class="text-muted">
@@ -181,6 +155,43 @@
 // showli.onclick = function(){
 
 // }
+
+ function calcPageHeight(doc) {
+      var cHeight = Math.max(doc.body.clientHeight, doc.documentElement.clientHeight)
+      var sHeight = Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight)
+      var height  = Math.max(cHeight, sHeight)
+      return height
+  }
+  //根据ID获取iframe对象
+  var ifr = document.getElementById('main')
+  ifr.onload = function() {
+      //解决打开高度太高的页面后再打开高度较小页面滚动条不收缩
+      ifr.style.height='0px';
+      var iDoc = ifr.contentDocument || ifr.document
+      var height = calcPageHeight(iDoc)
+      if(height < 850){
+        height = 850;
+      }
+      ifr.style.height = height + 'px'
+  }
+
+
+// function setIframeHeight(iframeId){  
+//     var cwin = document.getElementById(iframeId);   
+//     if (document.getElementById){  
+//         if (cwin && !window.opera){  
+//             if (cwin.contentDocument && cwin.contentDocument.body.offsetHeight){  
+//                 cwin.height = cwin.contentDocument.body.offsetHeight + 20; //FF NS   
+//             }  
+//             else if(cwin.Document && cwin.Document.body.scrollHeight){  
+//                 cwin.height = cwin.Document.body.scrollHeight + 10;//IE   
+//             }  
+//         }else{  
+//             if(cwin.contentWindow.document && cwin.contentWindow.document.body.scrollHeight)   
+//             cwin.height = cwin.contentWindow.document.body.scrollHeight;//Opera   
+//         }  
+//     }   
+// };
 
 
 

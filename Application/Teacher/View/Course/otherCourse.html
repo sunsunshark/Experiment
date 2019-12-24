@@ -41,8 +41,8 @@
              					
 							<th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th>
 							<th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th><th> </th>
-                            <td>  <a href="{:U('Course/addCourse')}"> <input type="button" value="添加课程" > </a>   </td>
-                      	
+                            
+                  
                         </tr>
 
                     </table>
@@ -64,7 +64,7 @@
 				
 		<a href="{:U('Course/showCourseById')}/courseId/{$data['cid']}  "> <input type="button" value="查看详细信息" >  </a>				
 	
-		<a href="{:U('Course/relateMyCourse')}/courseId/{$data['cid']}  "> <input type="button" value="关联到我的课" >  </a>
+		<a href="{:U('Teacher/relateToMyCourse')}/courseId/{$data['cid']}  "> <input type="button" value="关联到我的课" >  </a>
 			
 		</div>
     </div>

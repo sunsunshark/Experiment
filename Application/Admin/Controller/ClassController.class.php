@@ -1,13 +1,14 @@
 <?php 
 
 namespace Admin\Controller;
-use Think\Controller;
+use Common\Controller\BaseAdminController;
 
-class ClassController extends MyController{
+class ClassController extends BaseAdminController{
 
 	public function showAllClassInfo(){
 
-		$model=new \Admin\Model\View_classwithdepartmentModel();
+		
+		$model=D('ViewClassDepartment','Logic');
 		$info=$model->show_AllClass_Info();
 		$count=$model->count_All_Class();
 		$this->assign('count',$count);
@@ -18,12 +19,9 @@ class ClassController extends MyController{
 
 	public function showClassInfoById($id){
 		
-		$model=new \Admin\Model\View_classwithdepartmentModel();
-		$class=$model->show_ClassInfo_ById($classId);
-
-		$model=new \Admin\Model\View_classinfoModel();
-		$info=$model->show_ClassInfo_ById($id);
-
+		$class=D('ViewClassDepartment','Logic')->show_ClassInfo_ById($id);
+		$info=D('ViewCourseTeacherClass','Logic')->getClassToInfo($id);
+		
 		$this->assign('class',$class);
 		$this->assign('datas',$info);
 		$this->display();
@@ -32,9 +30,8 @@ class ClassController extends MyController{
 	public function modifyClassInfoById($id){
 
 		if(IS_POST){
-			$model=D('Class');
 			$post=I('post.');
-			$status=$model->save_ClassInfo_ById($post);
+			$status=D('Class')->save_ClassInfo_ById($post);
 			if($status){
 				$this->success('修改成功',U('Class/showAllClassInfo'));
 			}else{
@@ -42,11 +39,9 @@ class ClassController extends MyController{
 			}
 
 		}else{
-			$model=new \Admin\Model\View_classwithdepartmentModel();
-			$model2=D('Department');
 
-			$info=$model->show_ClassInfo_ById($classId);
-			$departments=$model2->show_OtherDepartment_Info($info['department_id']);
+			$info=D('ViewClassDepartment','Logic')->show_ClassInfo_ById($classId);
+			$departments=D('Department')->show_OtherDepartment_Info($info['department_id']);
 
 			$this->assign('departments',$departments);
 			$this->assign('datas',$info);
@@ -56,8 +51,7 @@ class ClassController extends MyController{
 
 	public function deleteClassById($classId){
 
-		$model=D('Class');
-		$status=$model->delete_Class_ById($classId);
+		$status=D('Class')->delete_Class_ById($classId);
 		if($status){
 			$this->success('删除成功',U('Class/showAllClassInfo'));
 		}else{
@@ -70,8 +64,7 @@ class ClassController extends MyController{
 
 		if(IS_POST){
 			$post=I('post.');
-			$model=D('Class');
-			$status=$model->add_Class_Info($post);
+			$status=D('Class')->add_Class_Info($post);
 
 			if($status){
 				$this->success('添加成功');
@@ -80,8 +73,7 @@ class ClassController extends MyController{
 			}
 
 		}else{
-			$model2=D('Department');
-			$departments=$model2->show_AllDepartment_Info();
+			$departments=D('Department')->show_AllDepartment_Info();
 			$this->assign('departments',$departments);
 			$this->display();
 		}

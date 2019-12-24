@@ -1,9 +1,9 @@
 <?php 
 
 namespace Teacher\Controller;
-use Think\Controller;
+use Common\Controller\BaseTeacherController;
 
-class IndexController extends MyController{
+class IndexController extends BaseTeacherController{
 
 	public function index(){
 		
@@ -14,15 +14,13 @@ class IndexController extends MyController{
 		$this->display();
 	}
 
-	// public function test01(){
-	// 	$arr=array('软件学院','计算机学院');
-	// 	dump($arr);
-		
-	// 	$this->assign('datas',json_encode($arr));
-	// 	$this->display();
-	// }
+	public function home(){
+		$this->display();
+	}
 
-
-
-
+	public function test01(){
+		// $datas['_logic']='OR';
+		$status=$status=D('ClassTeacher')->where($datas)->delete();
+		dump($status);
+	}
 }

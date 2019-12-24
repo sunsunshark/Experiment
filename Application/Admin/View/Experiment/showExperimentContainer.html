@@ -17,14 +17,12 @@
                                 <select name="search-sort" id="">
                                     <option value="id">Id</option>
                                     <option value="Container_id">容器Id</option>
-                                    <option value="student_id">学号</option>
-                                    <option value="Sname">学生姓名</option>
-                                    <option value="Image_id">容器Id   </option>
+                                    <option value="ip_num">Host_ip</option>
                                     <option value="Image_id">镜像Id</option>
-                                    <option value="name">镜像名字  </option>
+                                    <option value="student_id">学号</option>
                                     <option value="Eid">所属实验Id</option>
                                     <option value="Ename">所属实验Name   </option>
-                                    <option value="ip_num">Host_ip</option>
+                                    
                                 </select>
                             </td>
                             <th width="70">关键字:</th>
@@ -41,32 +39,27 @@
                 <table class="result-tab" width="100%">
                     <tr>
                         <th>Id</th>
-                        <th>容器Id</th>
-                        <th>学生id</th>
-                        <th>学生姓名</th>
+                        <th>容器Id</th>|
                         <th>Ip地址</th>
+                        <th>Host_ip</th>
                         <th>镜像Id</th>
-                        <th>镜像名字</th>
+                        <th>学生id</th>
                         <th>所属实验Id</th>
                         <th>所属实验Name</th>
-                        <th>Host_ip</th>
                         <th>修改</th>
                     </tr>
                  <volist   name="datas" id="data">
                     <tr>
                         <td> {$data['id']}  </td>
                         <td> {$data['container_id']}  </td>
-                        <td>  {$data['student_id']}  </td>
-                        <td>   {$data['sname']}  </td>
-                        <td>  {$data['ip']} </td>
-                        <td>  {$data['image_id']}     </td>
-                        <td>  {$data['image_name']}  </td>
-                        <td>   {$data['sid']}  </td>
-                        <td>   {$data['ename']}   </td>
+                        <td>  {$data['ip']}  </td>
                         <td>   {$data['ip_num']}  </td>
+                        <td>  {$data['image_id']} </td>
+                        <td>   {$data['stu_id']}  </td>
+                        <td>   {$data['experiment_id']}   </td>
+                        <td>   {$data['ename']}  </td>
                         <td>
-                            
-                            <a class="link-del" href="__CONTROLLER__/deleteContainerById/container_id/{$data['container_id']}/eid/{$data['eid']}/user_id/{$data['student_id']}">删除</a>
+                            <a class="link-del" href="__CONTROLLER__/deleteContainerById/container_id/{$data['container_id']}/eid/{$data['experiment_id']}/user_id/{$data['stu_id']}">删除</a>
                         </td>
                     </tr>
                  </volist>  

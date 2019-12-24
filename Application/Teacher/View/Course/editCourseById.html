@@ -39,10 +39,13 @@
  <div  style="float: left;" >
     <ul class="point">
         
-        <p> <a href="{:U("Course/addChapter")}/to_course/{$id}">&#187; &raquo;添加章节</a>  </p>
+        <p> <a href="{:U('Chapter/addChapter')}/to_course/{$id}">&#187; &raquo;添加章节</a>  </p>
         <br>
             <volist name="datas" id="data">
-        <li>&#9733 <a href="#"> {$data['name']}  </a>  </li>
+        <li>&#9733 <a href="#"> {$data['name']}  </a>
+          &ensp;&ensp;&ensp;&ensp;&ensp;
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+            <a href="{:U('Chapter/deleteChapterById')}/chapterId/{$data['id']}/courseId/{$id}">删除</a>  </li>  
             </volist>
     </ul>
 </div>   
@@ -54,14 +57,27 @@
              &#9733{$data['name']}  -->
               </a>
               <font  color="red">重复上传,将会替代</font>
-              <p> {$data['name']} </p>
+              <p> {$data['name']}    </p>
+              <p>关联实验所需虚拟机</p>
+              <form action="{:U('Chapter/ChapterRelateImage')}"  method="post">
+                <input type="hidden" name="courseId" value="{$id}" >
+                <input type="hidden" name="chapter_id" value="{$data['id']}">
+                  <select  name="to_imageId"  style="width:150px;">
+                        <option  selected="true" disabled="true" >请选择</option>
+                    <volist name="experimentInfo"  id="experiment">
+                        <option value="{$experiment['eid']}">{$experiment['ename']}</option>
+                    </volist>
+                  </select>
+                  <input type="submit" value="关联">
+              </form>
+
               <br>
                 <br />
                  <p>  <b >上传视频(限50M,后缀限:'avi','wmv','mpeg','mp4')  </b>  </p>  
 
                 <video src="__ROOT__/Source/Chapter/{$data['video']}"  style="width: 50%;"    controls="" ></video>
 
-                    <form action="{:U('Course/uploadVideo')} " method="post" enctype="multipart/form-data" >
+                    <form action="{:U('Chapter/uploadVideo')} " method="post" enctype="multipart/form-data" >
                         <input type="file"  name="video" >
                         <input type="hidden" name="chapter_id" value="{$data['id']} ">
                         <!-- <input type="texhiddetn"  name="chapter_name"  value="{$data['name']} -->
@@ -72,8 +88,8 @@
 
 
 
-             <b>上传实验指导书  </b>
-             <form action="{:U('Course/uploadWord')} " method="post" enctype="multipart/form-data" >
+             <b>上传实验指导书 <font color="red" >(只限.docx文件,.doc请另存为.docx后再上传)</font>  </b>
+             <form action="{:U('Chapter/uploadWord')} " method="post" enctype="multipart/form-data" >
                         <input type="file"  name="word" >
                         <input type="hidden" name="chapter_id" value="{$data['id']} "  >
                         <!-- <input type="texhiddetn"  name="chapter_name"  value="{$data['name']} -->

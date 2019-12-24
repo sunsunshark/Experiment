@@ -1,34 +1,40 @@
 <?php 
 
 namespace Teacher\Controller;
-use Think\Controller;
+use Common\Controller\BaseTeacherController;
 
-class TeacherController extends MyController{
+class TeacherController extends BaseTeacherController{
+
+	public function showMyCourse(){
+
+		
+		$info=D('CourseTeacher')->find_My_CourseId(Session('teacher_id'));
+		$datas=D('Course')->show_MyCourse_Info($info);
+
+		$teacherId=Session('teacher_id');
+		for($i=0;$i<count($datas);$i++){
+			$classIds=D('ViewCourseTeacherClass','Logic')->find_ClassId_ById($datas[$i]['cid'],$teacherId);
+			$datas[$i]['classIds']=$classIds;
+		}
+		if(empty($datas)){
+			// echo "<script>  javascript :history.back(-1); </script> ";
+			echo "<script> alert('课程为空'); </script>";
+		}
+		$this->assign('datas',$datas);
+		$this->display();
+	}
 
 	public function showInfo($teacherId){
 
-		$model=D('Teacher');
-		$info=$model->find_Info_ById($teacherId);
+		$info=D('Teacher')->find_Info_ById($teacherId);
 		$this->assign('datas',$info);
 		$this->display();
 	}
 
-
-	public function showStudentById($classId){
-
-		$model=D('Student');
-		$datas=$model->show_Student_ById($classId);
-		$this->assign("datas",$datas);
-		$this->display();
-	}
-	
 	public function modifyInfo($teacherId){
-
-
 		if(IS_POST){
 			$post=I('post.');
-			$model=D('Teacher');
-			$info=$model->modify_Info($post);
+			$info=D('Teacher')->modify_Info($post);
 
 			if($info !== false){
 				$this->redirect("Teacher/showInfo",array('teacherId'=>$post['Tid']));
@@ -36,8 +42,7 @@ class TeacherController extends MyController{
 				$this->error('修改失败');
 			}
 		}else{
-			$model=D('Teacher');
-			$info=$model->find_Info_ById($teacherId);
+			$info=D('Teacher')->find_Info_ById($teacherId);
 			$this->assign('datas',$info);
 			$this->display();
 		}
@@ -48,16 +53,13 @@ class TeacherController extends MyController{
 		if(IS_POST){
 			$teacherId=Session('teacher_id');
 			$post=I('post.');
-			dump($post);
 
 			if($post['newPwd1']==$post['newPwd2']){
 				$info['Tid']=$teacherId;
-				$info['Tpwd']=$post['newPwd1'];
-				$model=D('Teacher');
-				$status=$model->modify_Info($info);	
-
+				$info['Tpwd']=md5($post['newPwd1']);
+				$status=D('Teacher')->modify_Info($info);	
 				if($status !== false){
-					$this->success('修改成功');
+					echo "<script> alert('修改成功');  </script>";
 				}else{
 					$this->error('修改失败');
 				}
@@ -67,10 +69,32 @@ class TeacherController extends MyController{
 			}
 
 		}
-			$this->display();	
-		
-		
+			$this->display();		
 	}
+
+
+	public function relateToMyCourse($courseId){
+
+		$teacherId=Session('teacher_id');
+		// $model=new \Teacher\Model\Course_teacherModel();
+		$info=array('teacher_id'=>$teacherId,'course_id'=>$courseId);
+		$status=D('CourseTeacher')->relate_To_MyCourse($info);
+		if($status){
+			$this->success('关联成功',U('Teacher/showMyCourse'));
+		}else{
+			$this->error('关联失败');
+		}
+	}
+
+	public function relieveMyCourseById($id){
+
+		$teacherId=Session('teacher_id');
+		D('ViewCourseTeacherClass','Logic')->deleteTeacherToCourseClass($id,$teacherId);
+		// $status=D('CourseTeacher')->delete_Course_By_Id($id,$teacherId);
+		// $this->redirect('Teacher/showMyCourse');
+	}
+
+
 
 
 }

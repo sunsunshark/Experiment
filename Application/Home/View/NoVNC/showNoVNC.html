@@ -73,21 +73,7 @@ a{
     <input type="hidden"  id='ceshiUrl' value="{$ceshiUrl}">
     <input type="hidden"  id='sshUrl' value="{$sshUrl}">
     <div class="leftDiv"  style="height: 100%;width: 32%; float: left; "  >
-        <!-- <div style="height: 10%; background-color: blue;" >
-            <ul>
-                  <li><div>虚拟机</div> </li>
-                  <li><div>视频资料</div> </li>
-                  <li><div>笔记</div></li>
-                  <li> <div>步骤说明</div>  </li>
-            </ul>
 
-        </div>
-        <div   style="height:40%;background-color:red; " >
-            红色的的
-        </div>
-        <div  style="height:40%;background-color:green; " >
-            蓝色的的
-        </div> -->
         <div style="height: 10%;width: 100%;" >
                  
               <ul class="point">
@@ -118,9 +104,9 @@ a{
             </div>
 
             <div class="con2" style="height: 90%;" >
-                <form action="{:U('NoVNC/saveNote')} " id="myForm" method="post"  style="height: 80%;"  target="hidden_iframe"  >
+                <form action="{:U('Course/saveNote')} " id="myForm" method="post"  style="height: 80%;"  target="hidden_iframe"  >
                   <script id="container"   name="myNote"  style="height: 100%;" scrolling="yes"> </script>
-                  <input type="hidden"  name="id" value="{$id}" >
+                  <input type="hidden"  name="chapterId" value="{$chapterId}" >
                   <button type="button" style="background-color:#1E90FF;height: 8%;width: 10%;" onclick="submitNote()"   >保存</button>
                 </form>
                 <iframe name="hidden_iframe" style="display:none;"></iframe>
@@ -165,10 +151,8 @@ a{
   console.log("jianhanke!");
   var url=document.getElementById("hiddenUrl").value;
   console.log(url);
-   var rfb = new RFB(document.getElementById('screen'),url,{ credentials: { password: '123456' },reconnect:true,reconnect_delay:10000,autoconnect:true }  );
-   rfb.reconnect=true;
-   rfb.autoconnect=true;
-   rfb.reconnect_delay=10000;
+   var rfb = new RFB(document.getElementById('screen'),url,{ credentials: { password: '123456' } }  );
+   rfb.clipViewport=true;
   rfb.connect(); 
 </script>
 <script type="text/javascript">
@@ -225,11 +209,11 @@ $('#shareDesk').on('click', function(){
       type: 1,
       area: ['600px', '360px'],
       shadeClose: true, //点击遮罩关闭
-      content: '\<\/b>只读共享操作链接: <br>   \<\input id="viewOnly" type="text" style="width: 350px;" value="{$viewOnly}" size="20" readonly="readonly">&nbsp;&nbsp;\<\input type="button"  value="点击复制"   name="share" onclick="videOnly()" ><br> <br> <br>  共享操作连接:<br> \<\input id="shareOperate" type="text" style="width: 350px;" value="{$shareOperate}" size="20" readonly="readonly">&nbsp;&nbsp;\<\input type="button"  value="点击复制"   name="share" onclick="shareOperate()" >'
+      content: '\<\/b>只读共享操作链接: <br>   \<\input id="onlyView" type="text" style="width: 350px;" value="{$onlyView}" size="20" readonly="readonly">&nbsp;&nbsp;\<\input type="button"  value="点击复制"   name="share" onclick="videOnly()" ><br> <br> <br>  共享操作连接:<br> \<\input id="shareOperate" type="text" style="width: 350px;" value="{$shareOperate}" size="20" readonly="readonly">&nbsp;&nbsp;\<\input type="button"  value="点击复制"   name="share" onclick="shareOperate()" >'
     });
   });
  function videOnly(){
-      var copy=document.getElementById('viewOnly');
+      var copy=document.getElementById('onlyView');
         // copy = copy.value; // 修改文本框的内容
         copy.select(); // 选中文本
       document.execCommand("copy");
